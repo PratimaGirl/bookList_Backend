@@ -3,7 +3,6 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const Book = require("../db/models/Book");
 
-// GET /books - Fetch all books
 const getBook = async (req, res) => {
   try {
     const books = await Book.find();
@@ -13,7 +12,6 @@ const getBook = async (req, res) => {
   }
 };
 
-// GET /books/:userId - Fetch books for a specific user
 const getBooksByUserId = async (req, res) => {
   try {
     const userId = req.params.userId;
