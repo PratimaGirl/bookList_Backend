@@ -29,8 +29,11 @@ JWTSECRET=<your-secret-key>
 ```
 
 ### **5. Run the Application**
-
-node index.js / nodemon index.js
+```
+node index.js
+or
+nodemon index.js
+```
 
 ## Languages & tools
 
