@@ -20,7 +20,7 @@ cd <backend-folder>
 ### **3. Install Dependencies**
 npm install
 
-## **4. Set Environment Variables**
+### **4. Set Environment Variables**
 Create a .env file in the root directory:
 ```
 PORT=5000
@@ -35,7 +35,7 @@ or
 nodemon index.js
 ```
 
-## Languages & tools
+### **6. Languages & tools**
 
 - [Node](https://nodejs.org/en/)
 
@@ -46,5 +46,5 @@ nodemon index.js
 ### **7. Vercel Deployment **
 Both frontend and backend are deployed on Vercel from the different repository. When deploying on Vercel, for frontend vercel-link: [https://book-list-frontend-theta.vercel.app/]
 
-### ***8. Github Repository **
+### **8. Github Repository **
 Frontend Repository: [https://github.com/PratimaGirl/bookList_Frontend]
