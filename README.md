@@ -44,7 +44,9 @@ nodemon index.js
 - [Mongoose](https://mongoosejs.com/)
 
 ### **7. Vercel Deployment**
-Both frontend and backend are deployed on Vercel from the different repository. When deploying on Vercel, for frontend vercel-link: [https://book-list-frontend-theta.vercel.app/]
+Both frontend and backend are deployed on Vercel from the different repository. When deploying on Vercel, 
+for frontend vercel-link: [https://book-list-frontend-theta.vercel.app/],
+for backend vercel-link: [https://book-list-backend-pied.vercel.app/]
 
 ### **8. Github Repository**
 Frontend Repository: [https://github.com/PratimaGirl/bookList_Frontend]
