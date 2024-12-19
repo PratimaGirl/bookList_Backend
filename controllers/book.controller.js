@@ -1,6 +1,4 @@
-const express = require("express");
-const router = express.Router();
-const { body, validationResult } = require("express-validator");
+const { validationResult } = require("express-validator");
 const Book = require("../db/models/Book");
 
 const getBook = async (req, res) => {
@@ -27,7 +25,6 @@ const addBook = async (req, res) => {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-
   try {
     const { title, author, userId } = req.body; // Include userId in the request body
     const book = new Book({ title, author, userId }); // Add userId when creating the book
@@ -38,8 +35,52 @@ const addBook = async (req, res) => {
   }
 };
 
+const updateBook = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  try {
+    const { bookId } = req.params;
+    const { title, author } = req.body;
+
+    const updatedBook = await Book.findByIdAndUpdate(
+      bookId,
+      { title, author },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedBook) {
+      return res.status(404).json({ message: "Book not found" });
+    }
+
+    res.json(updatedBook);
+  } catch (err) {
+    res.status(500).send("Server Error");
+  }
+};
+
+const deleteBook = async (req, res) => {
+  try {
+    const { bookId } = req.params;
+
+    const deletedBook = await Book.findByIdAndDelete(bookId);
+
+    if (!deletedBook) {
+      return res.status(404).json({ message: "Book not found" });
+    }
+
+    res.json({ message: "Book deleted successfully" });
+  } catch (err) {
+    res.status(500).send("Server Error");
+  }
+};
+
 module.exports = {
   addBook,
   getBook,
   getBooksByUserId,
+  updateBook,
+  deleteBook,
 };
